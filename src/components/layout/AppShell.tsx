@@ -7,6 +7,7 @@ import { AppHeader } from "./AppHeader";
 import { AmbientBackground } from "./AmbientBackground";
 import { CommandPalette } from "./CommandPalette";
 import { PerformanceMonitor } from "./PerformanceMonitor";
+import { SplashScreen } from "./SplashScreen";
 import { cn } from "@/lib/utils";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -35,6 +36,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       "flex h-screen bg-background text-foreground overflow-hidden transition-all duration-700",
       isCommandCenterMode && "bg-black"
     )}>
+      <SplashScreen />
       <AmbientBackground />
       {!isCommandCenterMode && <AppSidebar />}
       <div className="flex flex-col flex-1 overflow-hidden relative z-10">
