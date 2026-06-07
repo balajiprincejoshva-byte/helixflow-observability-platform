@@ -35,13 +35,8 @@ export function SplashScreen() {
       
       {/* Central Content */}
       <div className="relative z-10 flex flex-col items-center animate-in zoom-in-95 fade-in duration-500">
-        <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(138,43,226,0.3)] relative overflow-hidden">
-          <Activity className="w-8 h-8 text-primary" />
-          
-          {/* Scanning laser effect */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="w-full h-1 bg-primary/60 blur-[1px] absolute top-0 animate-[scan_2s_ease-in-out_infinite]" />
-          </div>
+        <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(138,43,226,0.3)]" style={{ perspective: '1000px' }}>
+          <Activity className="w-8 h-8 text-primary animate-[logoSpin_2s_ease-in-out_infinite]" />
         </div>
         
         <h1 className="text-3xl font-bold tracking-tight text-foreground flex items-center gap-1">
@@ -59,12 +54,10 @@ export function SplashScreen() {
       </div>
       
       <style dangerouslySetInnerHTML={{__html: `
-        @keyframes scan {
-          0% { transform: translateY(-100%); opacity: 0; }
-          10% { opacity: 1; }
-          50% { transform: translateY(64px); opacity: 1; }
-          60% { opacity: 0; }
-          100% { transform: translateY(64px); opacity: 0; }
+        @keyframes logoSpin {
+          0% { transform: rotateY(0deg); }
+          50% { transform: rotateY(180deg); }
+          100% { transform: rotateY(360deg); }
         }
         @keyframes progress {
           0% { width: 0%; }
