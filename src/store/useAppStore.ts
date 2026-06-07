@@ -48,6 +48,7 @@ export const useAppStore = create<AppState>((set) => {
       syncHealth: 99.99,
       history: [],
     },
+    samples: [],
     storage: { 
       totalCapacityTb: 500, 
       usedCapacityTb: 342.5, 
