@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAppStore } from "@/store/useAppStore";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -14,6 +14,13 @@ export default function CompareRunsPage() {
   const { runs, metrics, storage } = useAppStore();
   const [runAId, setRunAId] = useState<string>(runs[0]?.id || "");
   const [runBId, setRunBId] = useState<string>(runs[1]?.id || "");
+
+  useEffect(() => {
+    if (runs.length > 1) {
+      if (!runAId) setRunAId(runs[0].id);
+      if (!runBId) setRunBId(runs[1].id);
+    }
+  }, [runs, runAId, runBId]);
 
   const runA = runs.find(r => r.id === runAId);
   const runB = runs.find(r => r.id === runBId);
@@ -90,7 +97,7 @@ export default function CompareRunsPage() {
                       <ExplainTooltip title="Estimated Yield" content="Total theoretical data output measured in Gigabases (Gb).">
                         <span className="text-xs text-muted-foreground">Est. Yield</span>
                       </ExplainTooltip>
-                      <p className="text-xl font-bold mt-1 text-primary">{metricsA.estimatedYieldGb.toFixed(0)} <span className="text-sm text-muted-foreground">Gb</span></p>
+                      <p className="text-xl font-bold mt-1 text-primary">{metricsA.estimatedYieldGb.toFixed(2)} <span className="text-sm text-muted-foreground">Gb</span></p>
                     </div>
                     <div className="p-4 bg-background/50 border border-border/50 rounded-lg">
                       <ExplainTooltip title="Duplication Rate" content="PCR duplication frequency.">
@@ -157,7 +164,7 @@ export default function CompareRunsPage() {
                       <ExplainTooltip title="Estimated Yield" content="Total theoretical data output measured in Gigabases (Gb).">
                         <span className="text-xs text-muted-foreground">Est. Yield</span>
                       </ExplainTooltip>
-                      <p className="text-xl font-bold mt-1 text-secondary">{metricsB.estimatedYieldGb.toFixed(0)} <span className="text-sm text-muted-foreground">Gb</span></p>
+                      <p className="text-xl font-bold mt-1 text-secondary">{metricsB.estimatedYieldGb.toFixed(2)} <span className="text-sm text-muted-foreground">Gb</span></p>
                     </div>
                     <div className="p-4 bg-background/50 border border-border/50 rounded-lg">
                       <ExplainTooltip title="Duplication Rate" content="PCR duplication frequency.">
