@@ -107,3 +107,4 @@ If you are recruiting for Software Engineering roles, this project demonstrates 
 1. **Systems Design Literacy:** I modeled realistic pipeline dependencies, queue backlogs, node latency spikes, and telemetry propagation—treating the UI as a true observability layer rather than a simple CRUD app.
 2. **Advanced Frontend Architecture:** I implemented a strict separation of concerns, offloading state polling to Zustand, utilizing Framer Motion for GPU-accelerated layout transitions, and hitting 60 FPS even while simulating heavy event ingestion.
 3. **Engineering Integrity:** I adhered strictly to deterministic simulation, proving that the application's underlying logic is sound, verifiable, and free of superficial "mock" filler data.
+- **contribution from Aakash pandian**
